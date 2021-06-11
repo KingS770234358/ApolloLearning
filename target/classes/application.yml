@@ -1,0 +1,15 @@
+# 1.Apollo已经占用了8080端口，应用要换一个端口！！！
+server:
+  port: 63000 # :后面要多1个空格
+# -Dapp.id=xxx -Denv=xxx -Dapollo.cluster=xxx -Ddev_meta=xxx  namespace
+# 2.本配置文件配置第1项和namespace;
+# Portal管理平台配置的项目id
+app:
+  id: accout-service # Portal管理平台配置的项目id
+apollo:
+  bootstrap:
+    enable: true # 启用Apollo
+    # 配置namespace,以逗号分隔
+    namespaces: application,spring-rocketmq,spring-boot-druid,micro_service.spring-boot-http
+# 3.dev_meta在apollo-env.properties文件中配置;   环境名_meta =====> 环境名.meta
+# 4. -Denv -Dapollo.cluster 建议在VM Options中配置
